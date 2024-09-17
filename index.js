@@ -649,7 +649,8 @@ function sleep(ms) {
 							if (userResponse) {
 								window.open('https://www.bilibili.com', '_blank');
 								_LIFE = 4
-								confirm('waiting........');
+								var response = confirm('waiting........');
+								if (response) {}
 							}
 							if(_LIFE){
 								stage.resetItems();
