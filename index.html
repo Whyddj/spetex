@@ -1,0 +1,135 @@
+<html>
+	<head>
+		<meta charset="utf8">
+		<title>Pac-Man . 吃豆人游戏</title>
+		<link rel="shortcut icon" href="favicon.png">
+		<style>
+			html, body {
+				height: 100%;
+				margin: 0;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: #222;
+			}
+			.game-container {
+				width: 80%;
+				/* max-width: 400px; */
+				height: auto;
+				background-color: #555;
+				border-radius: 20px;
+				box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.7);
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				padding: 5%;
+			}
+			.screen {
+				width: 100%;
+				aspect-ratio: 960 / 640; /* 设置屏幕的宽高比为 960:640 */
+				background-color: #000;
+				border-radius: 10px;
+				margin-bottom: 10%;
+				position: relative;
+			}
+			canvas {
+				width: 100%;
+				height: 100%;
+				display: block;
+				border-radius: 10px;
+			}
+			.controls {
+				width: 100%;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin: 5px;
+			}
+			.dpad {
+				display: grid;
+				grid-template-columns: 1fr 1fr 1fr;
+				grid-template-rows: 1fr 1fr 1fr;
+				gap: 10%;
+				width: 50%;
+			}
+			.dpad .control-button {
+				width: 100%;
+				height: 0;
+				padding-bottom: 100%;
+				font-size: 1.5em;
+				border-radius: 50%;
+				background-color: #ccc;
+				border: 2px solid #888;
+				cursor: pointer;
+				box-shadow: 0px 4px #666;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.dpad .control-button:active {
+				box-shadow: 0px 2px #666;
+				transform: translateY(2px);
+			}
+			.dpad .empty {
+				visibility: hidden;
+			}
+			.space-button {
+				width: 25%;
+				height: 0;
+				padding-bottom: 50%;
+				font-size: 1.5em;
+				border-radius: 10px;
+				background-color: #ccc;
+				border: 2px solid #888;
+				cursor: pointer;
+				box-shadow: 0px 4px #666;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+			.space-button:active {
+				box-shadow: 0px 2px #666;
+				transform: translateY(2px);
+			}
+		</style>
+		<script type="text/javascript">
+			document.addEventListener('DOMContentLoaded', function() {
+				const triggerKey = (keyCode) => {
+					const event = new KeyboardEvent('keydown', { keyCode: keyCode, which: keyCode, key: String.fromCharCode(keyCode), bubbles: true });
+					document.dispatchEvent(event);
+				};
+
+				document.getElementById('upButton').addEventListener('click', () => triggerKey(38)); // 上箭头
+				document.getElementById('leftButton').addEventListener('click', () => triggerKey(37)); // 左箭头
+				document.getElementById('rightButton').addEventListener('click', () => triggerKey(39)); // 右箭头
+				document.getElementById('downButton').addEventListener('click', () => triggerKey(40)); // 下箭头
+				document.getElementById('spaceButton').addEventListener('click', () => triggerKey(32)); // 空格键
+			});
+		</script>
+	</head>
+	<body>
+		<div class="game-container">
+			<div class="screen">
+				<canvas id="canvas">不支持画布</canvas>
+			</div>
+			<div class="controls">
+				<div class="dpad">
+					<div class="empty"></div>
+					<button id="upButton" class="control-button"></button>
+					<div class="empty"></div>
+					<button id="leftButton" class="control-button"></button>
+					<div class="empty"></div>
+					<button id="rightButton" class="control-button"></button>
+					<div class="empty"></div>
+					<button id="downButton" class="control-button"></button>
+					<div class="empty"></div>
+				</div>
+				<button id="spaceButton" class="space-button"></button>
+			</div>
+		</div>
+		<script src="game.js"></script>
+		<script src="index.js"></script>
+	</body>
+</html>
