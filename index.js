@@ -648,6 +648,7 @@ function sleep(ms) {
 							}
 							if (userResponse) {
 								window.open('https://www.example.com', '_blank');
+								_LIFE = 4
 								alert('您已成功复活');
 							}
 							if(_LIFE){
