@@ -647,7 +647,7 @@ function sleep(ms) {
 								var userResponse = confirm('您的生命值已耗尽，是否观看广告复活？');
 							}
 							if (userResponse) {
-								window.open('https://www.bilibili.com', '_blank');
+								window.open('https://v.afbcs.cn/AuEXCL', '_blank');
 								_LIFE = 4
 								var response = confirm('waiting........');
 								if (response) {}
