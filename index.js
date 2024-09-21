@@ -1,12 +1,27 @@
 var plasticBagImage = new Image();
-plasticBagImage.src = 'np.png'; // 替换为你的图片路径
+plasticBagImage.src = 'orange.png'; 
 plasticBagImage.onload = function() {
     console.log('Image loaded successfully');
 };
 
 var plasticBagImage2 = new Image();
-plasticBagImage2.src = 'np2.png'; // 替换为你的图片路径
+plasticBagImage2.src = 'red.png'; 
 plasticBagImage2.onload = function() {
+    console.log('Image loaded successfully');
+};
+var plasticBagImage3 = new Image();
+plasticBagImage3.src = 'grey.png'; 
+plasticBagImage3.onload = function() {
+    console.log('Image loaded successfully');
+};
+var plasticBagImage4 = new Image();
+plasticBagImage4.src = 'ghost.png'; 
+plasticBagImage4.onload = function() {
+    console.log('Image loaded successfully');
+};
+var plasticBagImageWeak = new Image();
+plasticBagImageWeak.src = 'weak.png'; 
+plasticBagImageWeak.onload = function() {
     console.log('Image loaded successfully');
 };
 var playerImg = new Image();
@@ -647,7 +662,7 @@ function sleep(ms) {
 								var userResponse = confirm('您的生命值已耗尽，是否观看广告复活？');
 							}
 							if (userResponse) {
-								window.open('https://v.afbcs.cn/AuEXCL', '_blank');
+								window.open('http://xhslink.com/a/OhClGEhTigcW', '_blank');
 								_LIFE = 4
 								var response = confirm('waiting........');
 								if (response) {}
@@ -945,11 +960,15 @@ function sleep(ms) {
 							// context.closePath();
 							
 							// 绘制PNG图片
-							if (i % 2 == 0) {
+							if (i == 0) {
 								context.drawImage(plasticBagImage, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
-							} else {
+							} else if (i == 1) {
 								context.drawImage(plasticBagImage2, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
-							}
+							} else if (i == 2) {
+								context.drawImage(plasticBagImage3, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+							} else if (i == 3) {
+								context.drawImage(plasticBagImage4, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+							} 
 							
 							// if (plasticBagImages[i].complete && plasticBagImages[i].naturalHeight !== 0) {
 							// 	print(i)
@@ -960,6 +979,9 @@ function sleep(ms) {
 
 						}
 						context.fillStyle = '#FFF';
+						if (isSick) {
+							context.drawImage(plasticBagImageWeak, this.x - this.width / 2, this.y - this.height / 2, this.width, this.height);
+						}
 						// if(isSick){
 						// 	context.beginPath();
 						// 	context.arc(this.x-this.width*.15,this.y-this.height*.21,this.width*.08,0,2*Math.PI,false);
